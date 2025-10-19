@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probador de APIs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Probador de APIs</h1>
+        <div class="request-section">
+            <div class="url-method">
+                <select id="http-method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                    <option value="PATCH">PATCH</option>
+                </select>
+                <input type="text" id="api-url" placeholder="Ingresa la URL de la API" />
+                <button id="send-btn">Enviar</button>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="headers">Headers</button>
+                <button class="tab-btn" data-tab="params">Parámetros</button>
+                <button class="tab-btn" data-tab="body">Body</button>
+            </div>
+            
+            <div class="tab-content">
+                <div id="headers" class="tab-pane active">
+                    <div class="param-container">
+                        <div class="param-row">
+                            <input type="text" class="key-input" placeholder="Nombre" />
+                            <input type="text" class="value-input" placeholder="Valor" />
+                            <button class="add-param-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="params" class="tab-pane">
+                    <div class="param-container">
+                        <div class="param-row">
+                            <input type="text" class="key-input" placeholder="Nombre" />
+                            <input type="text" class="value-input" placeholder="Valor" />
+                            <button class="add-param-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="body" class="tab-pane">
+                    <textarea id="request-body" placeholder="Ingresa el cuerpo de la solicitud en formato JSON"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <div class="response-section">
+            <h2>Respuesta</h2>
+            <div class="response-info">
+                <div class="status">Estado: <span id="status-code">-</span></div>
+                <div class="time">Tiempo: <span id="response-time">-</span> ms</div>
+            </div>
+            <div class="response-body">
+                <pre id="response-data"></pre>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
